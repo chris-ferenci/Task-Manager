@@ -1,0 +1,25 @@
+header {
+    background-color: #dc4c3e;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+header .container {
+    padding: 1rem;
+}
+
+#header-grid{
+    white-space : nowrap;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: "toggle tasks";
+}
+
+#toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-area: toggle;
+    /* padding: 1rem 0; */
+}
