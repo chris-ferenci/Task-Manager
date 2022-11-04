@@ -1,5 +1,5 @@
 import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import './inbox.css'
 
 import LeftNav from '../components/LeftNav/LeftNav';
@@ -8,7 +8,7 @@ import TodoForm from '../components/ToDo/ToDoForm';
 
 import { TaskContext } from '../TaskContext';
 
-export default function Inbox(){
+export default function Inbox({}){
 
     const [ todos, setTodos ] = useState(
         [{ text: "Task 1",
@@ -42,12 +42,7 @@ export default function Inbox(){
         setTodos(newTodos);
       };
 
-    // const handleToggle = (id) => {
-    //     let mapped = tasksList.map(task => {
-    //       return task.id == id ? { ...task, complete: !task.complete } : { ...task};
-    //     });
-    //     setTasksList(mapped);
-    //   }
+
 
     return(
 

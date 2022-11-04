@@ -13,7 +13,7 @@ export default function LeftNav() {
 
 
     return(
-    <Router>
+    
 
         <nav id="left-nav">
             <ul className="left-nav-main">
@@ -55,14 +55,6 @@ export default function LeftNav() {
             </ul>
         </nav>
         
-        <Routes>
-            <Route exact path="/" element={ <Navigate to="/inbox" />}></Route>
-            <Route exact path='/inbox' element={<Inbox />}></Route>
-            <Route exact path='/today' element={<Today />}></Route>
-            <Route exact path='/upcoming' element={<Upcoming />}></Route>
-        </Routes>
-
-    </Router>
 
     );
 }

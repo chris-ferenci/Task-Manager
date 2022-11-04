@@ -1,7 +1,12 @@
+#header {
+    grid-area: header;
+}
+
 header {
     background-color: #dc4c3e;
     color: #fff;
     font-size: 1.2rem;
+
 }
 
 header .container {
@@ -11,9 +16,9 @@ header .container {
 #header-grid{
     white-space : nowrap;
     display:grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 3% 20% auto;
     grid-template-rows: auto;
-    grid-template-areas: "toggle tasks";
+    grid-template-areas: "toggle quick-find tasks";
 }
 
 #toggle {

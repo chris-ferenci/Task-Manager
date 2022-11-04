@@ -8,6 +8,19 @@
 
 /* LEFT NAV LIST */
 
+a, a:visited, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:active {
+    font-weight: 700;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
 .li-icons{
     padding-right:8px;
 }

@@ -1,5 +1,9 @@
 /* FORM INPUT STYLE */
 
+#quick-find {
+  grid-area: quick-find;
+}
+
 input[type=checkbox] {
     appearance: none;
     height: 1.7rem;
@@ -18,7 +22,7 @@ input[type=text] {
     border-radius: 4px;
     background-color: rgb(255, 255, 255, .25);
     background-size: 24px;
-    /* background-image: url('/img/ic-search.svg'); */
+    background-image: url('./ic-search.svg');
     background-position: 12px 12px;
     background-repeat: no-repeat;
     /* padding-left: 40px; */
