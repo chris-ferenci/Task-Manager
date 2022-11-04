@@ -44,11 +44,10 @@ export default function Upcoming(){
 
     return(
         <section id="primary-content">
-            <h1>This is Upcoming</h1>
+            <h1>Upcoming</h1>
 
             {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
-            
 
             <div className="todo-list">
                 {todos.map((todo, index) => (

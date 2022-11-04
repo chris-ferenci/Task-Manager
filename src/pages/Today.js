@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
+import { TaskContext } from '../TaskContext';
 
 export default function Today(){
 
@@ -38,7 +39,7 @@ export default function Today(){
 
     return(
         <section id="primary-content">
-            <h1>This is Today</h1>
+            <h1>Today</h1>
 
             {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 

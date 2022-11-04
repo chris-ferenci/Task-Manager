@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom' ;
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // components
@@ -14,28 +14,18 @@ import LeftNav from './components/LeftNav/LeftNav'
 import Inbox from './pages/Inbox';
 import Today from './pages/Today';
 import Upcoming from './pages/Upcoming';
+// import MainBody from './components/MainBody/MainBody';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
+    
     <Header/>
 
     <div id="main-container">
-
-      <Router>
-        
-       <LeftNav />
-
-        <Routes>
-            <Route exact path="/" element={ <Navigate to="/inbox" />}></Route>
-            <Route exact path='/inbox' element={<Inbox />}></Route>
-            <Route exact path='/today' element={<Today />}></Route>
-            <Route exact path='/upcoming' element={<Upcoming />}></Route>
-        </Routes>
-
-
-      </Router>
-      {/* <TasksMain/> */}
+    
+      <LeftNav />
+      
     </div>
   
   </>

@@ -1,9 +1,12 @@
 import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
-import React, {useState, createContext} from 'react';
+import React, {useState, useContext} from 'react';
 import './inbox.css'
 
+import LeftNav from '../components/LeftNav/LeftNav';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
+
+import { TaskContext } from '../TaskContext';
 
 export default function Inbox(){
 
@@ -48,28 +51,27 @@ export default function Inbox(){
 
     return(
 
-        <CounterContext.Provider value={{todos, setTodos}}>
-            <section id="primary-content">
-                <h1>Inbox</h1>
-                <p>{todos.length}</p>
+        <section id="primary-content">
+            <h1>Inbox</h1>
+            <p>{todos.length}</p>
 
-                {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
+            {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
-                <div className="todo-list">
-                    {todos.map((todo, index) => (
-                    <Todo
-                        key={index}
-                        index={index}
-                        todo={todo}
-                        completeTodo={completeTodo}
-                        removeTodo={removeTodo}
-                    />
-                    ))}
-                    <TodoForm addTodo={addTodo} />
-                </div>
+            <div className="todo-list">
+                {todos.map((todo, index) => (
+                <Todo
+                    key={index}
+                    index={index}
+                    todo={todo}
+                    completeTodo={completeTodo}
+                    removeTodo={removeTodo}
+                />
+                ))}
+                <TodoForm addTodo={addTodo} />
+            </div>
 
-            </section>
-        </CounterContext.Provider>
+        </section>
+
     )
 
 }
