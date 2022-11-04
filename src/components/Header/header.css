@@ -23,3 +23,15 @@ header .container {
     grid-area: toggle;
     /* padding: 1rem 0; */
 }
+
+#tasks {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    grid-area: tasks;
+    text-align: right;
+}
+
+#tasks p {
+    display: inline-block;
+}
