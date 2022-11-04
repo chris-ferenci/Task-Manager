@@ -5,8 +5,6 @@ import './inbox.css'
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
 
-export const CounterContext = createContext();
-
 export default function Inbox(){
 
     const [ todos, setTodos ] = useState(
