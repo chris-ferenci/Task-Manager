@@ -1,0 +1,11 @@
+.todo-form input[type=text] {
+    color: #2e2e2e;
+    width: 100%;
+    background-image: url(./ic-add-48.svg);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    border-bottom: 2px solid #ccc;
+    padding-left: 48px;
+  }
+

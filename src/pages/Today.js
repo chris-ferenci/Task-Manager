@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
-import { TaskContext } from '../TaskContext';
 
 export default function Today(){
 

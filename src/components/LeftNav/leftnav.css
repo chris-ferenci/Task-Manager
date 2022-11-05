@@ -3,7 +3,7 @@
     grid-area: left-nav;
     background-color: #fefbf2;
     padding: 2rem 3rem 2rem 3rem;
-    color: #000;
+    color: #2e2e2e;
 }
 
 /* LEFT NAV LIST */
@@ -131,8 +131,12 @@ nav ul li#add-project {
     width: 1.3em;
 }
 
-#toggle-inner {
+.toggle-inner-show {
     display: block;
+}
+
+.toggle-inner-hide {
+    display: none;
 }
 
 .li-toggle-result-2:before {

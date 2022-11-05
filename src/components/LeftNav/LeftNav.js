@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom' ;
 import "./leftnav.css";
 import { MdInbox, MdOutlineToday, MdCalendarToday, MdKeyboardArrowDown, MdPerson, MdKeyboardArrowRight, MdAdd } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { TaskContext } from '../../TaskContext';
 
-import Inbox from '../../pages/Inbox';
-import Today from '../../pages/Today';
-import Upcoming from '../../pages/Upcoming';
+import TodoContext from '../ToDo/TodoContext';
 
 export default function LeftNav() {
 
+    const [isActive, setActive] = useState(false);
+
+    const user = useContext(TodoContext);
 
     return(
     
@@ -18,15 +18,15 @@ export default function LeftNav() {
         <nav id="left-nav">
             <ul className="left-nav-main">
 
-                    <IconContext.Provider value={{ color: "blue" }}>
-                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>5</p></span></li></Link>
+                    <IconContext.Provider value={{ color: "#00A8DD", size: "24px" }}>
+                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>{user}</p></span></li></Link>
                     </IconContext.Provider>
 
-                    <IconContext.Provider value={{ color: "green" }}>
+                    <IconContext.Provider value={{ color: "#47DD00", size: "24px"  }}>
                         <Link to='/today'><li><span className="li-icons"><MdOutlineToday/></span>Today<span id="li-task-count" className="li-task-count-style">5</span></li></Link>
                     </IconContext.Provider>
                 
-                    <IconContext.Provider value={{ color: "purple" }}>
+                    <IconContext.Provider value={{ color: "#9600DD", size: "24px"  }}>
                         <Link to='/upcoming'><li><span className="li-icons"><MdCalendarToday/></span>Upcoming</li></Link>
                     </IconContext.Provider>
 
@@ -37,8 +37,7 @@ export default function LeftNav() {
                     <li class="li-projects">Projects</li> */}
             </ul>
 
-            <ul className="left-nav-projects">
-
+            <ul>
                 <li><span className="li-icons"><MdKeyboardArrowDown/></span><span className="project-dot"></span>Work
                     <ul id="toggle-inner">
                         <li><span className="project-dot-yellow"></span>New Brand<span id="li-task-count" className="li-task-count-style">5</span></li>

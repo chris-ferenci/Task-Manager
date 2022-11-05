@@ -6,9 +6,8 @@ import LeftNav from '../components/LeftNav/LeftNav';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
 
-import { TaskContext } from '../TaskContext';
 
-export default function Inbox({}){
+const Inbox = ({ }) => {
 
     const [ todos, setTodos ] = useState(
         [{ text: "Task 1",
@@ -44,11 +43,12 @@ export default function Inbox({}){
 
 
 
+
     return(
 
         <section id="primary-content">
             <h1>Inbox</h1>
-            <p>{todos.length}</p>
+
 
             {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
@@ -69,4 +69,6 @@ export default function Inbox({}){
 
     )
 
-}
+};
+
+export default Inbox;
