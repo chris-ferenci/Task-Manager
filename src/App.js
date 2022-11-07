@@ -12,24 +12,21 @@ import LeftNav from './components/LeftNav/LeftNav';
 import Inbox from './pages/Inbox';
 import Today from './pages/Today';
 import Upcoming from './pages/Upcoming';
-import TodoContext from './components/ToDo/TodoContext';
 
-const inboxCount = 5
 
 function App() {
+
   return (
     
       <div id="main-container">
-        <TodoContext.Provider value ={inboxCount} >
-        <Header/>
-        <LeftNav />
-        <Routes>
-            <Route exact path="/" element={ <Navigate to="/inbox" />}></Route>
-            <Route exact path='/inbox' element={<Inbox />}></Route>
-            <Route exact path='/today' element={<Today />}></Route>
-            <Route exact path='/upcoming' element={<Upcoming />}></Route>
-        </Routes>
-        </TodoContext.Provider>
+          <Header/>
+          <LeftNav />
+          <Routes>
+              <Route exact path="/" element={ <Navigate to="/inbox" />}></Route>
+              <Route exact path='/inbox' element= {<Inbox />}></Route>
+              <Route exact path='/today' element={<Today />}></Route>
+              <Route exact path='/upcoming' element={<Upcoming />}></Route>
+          </Routes>
       </div>
   );
 }

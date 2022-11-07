@@ -1,5 +1,5 @@
 import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, createContext } from 'react';
 import './inbox.css'
 
 import LeftNav from '../components/LeftNav/LeftNav';
@@ -43,29 +43,29 @@ const Inbox = ({ }) => {
 
 
 
-
     return(
 
-        <section id="primary-content">
-            <h1>Inbox</h1>
+    
+            <section id="primary-content">
+                <h1>Inbox</h1>
 
 
-            {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
+                {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                    removeTodo={removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                        completeTodo={completeTodo}
+                        removeTodo={removeTodo}
+                    />
+                    ))}
+                    <TodoForm addTodo={addTodo} />
+                </div>
 
-        </section>
+            </section>
 
     )
 
