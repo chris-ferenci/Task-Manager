@@ -6,46 +6,48 @@ import LeftNav from '../components/LeftNav/LeftNav';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
 
+import { TodoContext } from '../App';
 
-const Inbox = ({ }) => {
+const Inbox = ({  }) => {
 
-    const [ todos, setTodos ] = useState(
-        [{ text: "Task 1",
-        isCompleted: false,
-        status: "today" }, 
-        { text: "Task 2",
-        isCompleted: false,
-        status: "today" }, 
-        { text: "Task 3",
-        isCompleted: false,
-        status: "upcoming" }, 
-        { text: "Task 4",
-        isCompleted: false,
-        status: "today" }]
-    );
+    const [ inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo ] = useContext(TodoContext);
 
-    const addTodo = text => {
-        const newTodos = [...todos, { text }];
-        setTodos(newTodos);
-      };
+    // const [ todos, setTodos ] = useState(
+    //     [{ text: "Task 1",
+    //     isCompleted: false,
+    //     status: "today" }, 
+    //     { text: "Task 2",
+    //     isCompleted: false,
+    //     status: "today" }, 
+    //     { text: "Task 3",
+    //     isCompleted: false,
+    //     status: "upcoming" }, 
+    //     { text: "Task 4",
+    //     isCompleted: false,
+    //     status: "today" }]
+    // );
 
-    const completeTodo = index => {
-        const newTodos = [...todos];
-        newTodos[index].isCompleted = true;
-        setTodos(newTodos);
-    };
+    // const addTodo = text => {
+    //     const newTodos = [...inboxTodos, { text }];
+    //     setInboxTodos(newTodos);
+    //   };
 
-    const removeTodo = index => {
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        setTodos(newTodos);
-      };
+    // const completeTodo = index => {
+    //     const newTodos = [...inboxTodos];
+    //     newTodos[index].isCompleted = true;
+    //     setInboxTodos(newTodos);
+    // };
+
+    // const removeTodo = index => {
+    //     const newTodos = [...inboxTodos];
+    //     newTodos.splice(index, 1);
+    //     setInboxTodos(newTodos);
+    //   };
 
 
 
     return(
 
-    
             <section id="primary-content">
                 <h1>Inbox</h1>
 
@@ -53,7 +55,7 @@ const Inbox = ({ }) => {
                 {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
                 <div className="todo-list">
-                    {todos.map((todo, index) => (
+                    {inboxTodos.map((todo, index) => (
                     <Todo
                         key={index}
                         index={index}
