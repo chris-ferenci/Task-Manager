@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './todoform.css';
 
 import { MdAdd } from "react-icons/md";
 import { IconContext } from "react-icons";
 
+import { TodoContext } from '../../App';
+
+
+
 export default function TodoForm({ addTodo }) {
     // const placeholder = "Click to add a task"
+
+    const task = useContext(TodoContext); 
 
     const [value, setValue] = React.useState("Add a task");
   

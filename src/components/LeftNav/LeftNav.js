@@ -3,10 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-ro
 import "./leftnav.css";
 import { MdInbox, MdOutlineToday, MdCalendarToday, MdKeyboardArrowDown, MdPerson, MdKeyboardArrowRight, MdAdd } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { TodoContext } from '../../App';
 
 export default function LeftNav() {
 
     const [isActive, setActive] = useState(false);
+
+    const inboxTaskCount = useContext(TodoContext);
 
     return(
     
@@ -15,7 +18,7 @@ export default function LeftNav() {
             <ul className="left-nav-main">
 
                     <IconContext.Provider value={{ color: "#00A8DD", size: "24px" }}>
-                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>5</p></span></li></Link>
+                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>{inboxTaskCount.inboxTodos.length}</p></span></li></Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ color: "#47DD00", size: "24px"  }}>

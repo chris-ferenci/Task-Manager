@@ -29,21 +29,23 @@ const Inbox = ({}) => {
     // );
 
     // const addTodo = text => {
-    //     const newTodos = [...inboxTodos, { text }];
-    //     setInboxTodos(newTodos);
+    //     const newTodos = [task.inboxTodos, { text }];
+    //     task.setInboxTodos(newTodos);
     //   };
 
     // const completeTodo = index => {
-    //     const newTodos = [...inboxTodos];
+    //     const newTodos = [task.inboxTodos];
     //     newTodos[index].isCompleted = true;
-    //     setInboxTodos(newTodos);
+    //     task.setInboxTodos(newTodos);
     // };
 
     // const removeTodo = index => {
-    //     const newTodos = [...inboxTodos];
+    //     const newTodos = [task.inboxTodos];
     //     newTodos.splice(index, 1);
-    //     setInboxTodos(newTodos);
+    //     task.setInboxTodos(newTodos);
     //   };
+
+    
 
 
 
@@ -64,11 +66,11 @@ const Inbox = ({}) => {
                     key={index}
                     index={index}
                     todo={todo}
-                    // completeTodo={completeTodo}
-                    // removeTodo={removeTodo}
+                    completeTodo={task.completeTodo}
+                    removeTodo={task.removeTodo}
                 />
                 ))}
-                {/* <TodoForm addTodo={addTodo} /> */}
+                <TodoForm addTodo={task.addTodo} />
             </div>
 
             {/* <div className="todo-list">

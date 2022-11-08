@@ -1,101 +1,101 @@
 [{
     "id": 1,
-    "task": "Give dog a bath",
-    "complete": true,
+    "text": "Give dog a bath",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 2,
-    "task": "Do laundry",
-    "complete": true,
+    "text": "Do laundry",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 3,
-    "task": "Vacuum floor",
-    "complete": false,
+    "text": "Vacuum floor",
+    "isComplete": false,
     "status": "upcoming"
   }, {
     "id": 4,
-    "task": "Feed cat",
-    "complete": true,
+    "text": "Feed cat",
+    "isComplete": true,
     "status": "upcoming"
   }, {
     "id": 5,
-    "task": "Change light bulbs",
-    "complete": false,
+    "text": "Change light bulbs",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 6,
-    "task": "Go to Store",
-    "complete": true,
+    "text": "Go to Store",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 7,
-    "task": "Fill gas tank",
-    "complete": true,
+    "text": "Fill gas tank",
+    "isComplete": true,
     "status": "upcoming"
   }, {
     "id": 8,
-    "task": "Change linens",
-    "complete": false,
+    "text": "Change linens",
+    "isComplete": false,
     "status": "upcoming"
   }, {
     "id": 9,
-    "task": "Rake leaves",
-    "complete": true,
+    "text": "Rake leaves",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 10,
-    "task": "Bake Cookies",
-    "complete": false,
+    "text": "Bake Cookies",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 11,
-    "task": "Take nap",
-    "complete": true,
+    "text": "Take nap",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 12,
-    "task": "Read book",
-    "complete": true,
+    "text": "Read book",
+    "isComplete": true,
     "status": "upcoming"
   }, {
     "id": 13,
-    "task": "Exercise",
-    "complete": false,
+    "text": "Exercise",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 14,
-    "task": "Give dog a bath",
-    "complete": false,
+    "text": "Give dog a bath",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 15,
-    "task": "Do laundry",
-    "complete": false,
+    "text": "Do laundry",
+    "isComplete": false,
     "status": "upcoming"
   }, {
     "id": 16,
-    "task": "Vacuum floor",
-    "complete": false,
+    "text": "Vacuum floor",
+    "isComplete": false,
     "status": "upcoming"
   }, {
     "id": 17,
-    "task": "Feed cat",
-    "complete": true,
+    "text": "Feed cat",
+    "isComplete": true,
     "status": "today"
   }, {
     "id": 18,
-    "task": "Change light bulbs",
-    "complete": false,
+    "text": "Change light bulbs",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 19,
-    "task": "Go to Store",
-    "complete": false,
+    "text": "Go to Store",
+    "isComplete": false,
     "status": "today"
   }, {
     "id": 20,
-    "task": "Fill gas tank",
-    "complete": false,
+    "text": "Fill gas tank",
+    "isComplete": false,
     "status": "today"
   }]

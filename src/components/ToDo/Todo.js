@@ -10,8 +10,6 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
 
   // const [ inboxTodos, setInboxTodos ] = useContext(TodoContext);
 
-  const value = useContext(TodoContext); 
-
     return (
 
       <div className="todo-list-item">

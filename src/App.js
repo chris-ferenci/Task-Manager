@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './index.css';
 import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 //components
 import Header from './components/Header/Header';
@@ -13,6 +13,7 @@ import Inbox from './pages/Inbox';
 import Today from './pages/Today';
 import Upcoming from './pages/Upcoming';
 import Todo from './components/ToDo/Todo';
+
 
 export const TodoContext = createContext();
 
@@ -33,10 +34,14 @@ function App() {
       status: "today" }]
   );
 
-  const addTodo = text => {
-    const newTodos = [inboxTodos, { text }];
-    setInboxTodos(newTodos);
-  };
+  useEffect(() => {
+    const addTodo = text => {
+      const newTodos = [inboxTodos, { text }];
+      setInboxTodos(newTodos);
+    }
+  })
+
+ 
 
   const completeTodo = index => {
       const newTodos = [inboxTodos];
