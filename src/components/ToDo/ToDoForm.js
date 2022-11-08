@@ -1,8 +1,6 @@
 import React, {useContext} from 'react';
 import './todoform.css';
 
-import { MdAdd } from "react-icons/md";
-import { IconContext } from "react-icons";
 
 import { TodoContext } from '../../App';
 

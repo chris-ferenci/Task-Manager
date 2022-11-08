@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './index.css';
 import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
@@ -12,48 +12,60 @@ import LeftNav from './components/LeftNav/LeftNav';
 import Inbox from './pages/Inbox';
 import Today from './pages/Today';
 import Upcoming from './pages/Upcoming';
-import Todo from './components/ToDo/Todo';
 
+const jsonItems = require("./data.json");
 
 export const TodoContext = createContext();
 
 function App() {
 
-    const [ inboxTodos, setInboxTodos ] = useState(
-      [{ text: "Task 1",
-      isCompleted: false,
-      status: "today" }, 
-      { text: "Task 2",
-      isCompleted: false,
-      status: "today" }, 
-      { text: "Task 3",
-      isCompleted: false,
-      status: "upcoming" }, 
-      { text: "Task 4",
-      isCompleted: false,
-      status: "today" }]
-  );
+  //   const [ inboxTodos, setInboxTodos ] = useState(
+  //     [{ text: "Task 1",
+  //     isCompleted: false,
+  //     status: "today" }, 
+  //     { text: "Task 2",
+  //     isCompleted: false,
+  //     status: "today" }, 
+  //     { text: "Task 3",
+  //     isCompleted: false,
+  //     status: "upcoming" }, 
+  //     { text: "Task 4",
+  //     isCompleted: false,
+  //     status: "today" }]
+  // );
+
+  // const completeTodo = index => {
+  //     const newTodos = [inboxTodos];
+  //     newTodos[index].isCompleted = true;
+  //     setInboxTodos(newTodos);
+  // };
+
+  // const removeTodo = index => {
+  //     const newTodos = [inboxTodos];
+  //     newTodos.splice(index, 1);
+  //     setInboxTodos(newTodos);
+  //   };
+
+  // const addTodo = text => {
+  //   const newTodos = [inboxTodos, { text }];
+  //   setInboxTodos(newTodos);
+  // };
+
+  const [inboxTodos, setInboxTodos] = useState([]);
 
   useEffect(() => {
-    const addTodo = text => {
-      const newTodos = [inboxTodos, { text }];
-      setInboxTodos(newTodos);
-    }
-  })
-
- 
-
-  const completeTodo = index => {
-      const newTodos = [inboxTodos];
-      newTodos[index].isCompleted = true;
-      setInboxTodos(newTodos);
-  };
-
-  const removeTodo = index => {
-      const newTodos = [inboxTodos];
-      newTodos.splice(index, 1);
-      setInboxTodos(newTodos);
-    };
+    setInboxTodos([{
+      "id": 1,
+      "text": "Give dog a bath",
+      "isCompleted": true,
+      "status": "today"
+    }, {
+      "id": 2,
+      "text": "Do laundry",
+      "isCompleted": false,
+      "status": "today"
+    }]);
+  }, []);
 
   return (
 

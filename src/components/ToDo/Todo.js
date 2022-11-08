@@ -6,7 +6,9 @@ import { useInRouterContext } from "react-router-dom";
 import { TodoContext } from "../../App";
 
 
-const Todo = ({ todo, index, completeTodo, removeTodo }) => {
+const Todo = ({ }) => {
+
+  const { inboxTodos, setInboxTodos } = useContext(TodoContext);
 
   // const [ inboxTodos, setInboxTodos ] = useContext(TodoContext);
 
@@ -20,19 +22,18 @@ const Todo = ({ todo, index, completeTodo, removeTodo }) => {
 
           <div
             className="todo"
-            style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
           >
-            <div>
-              <button className="btn-checkbox-round" onClick={() => completeTodo(index)}></button>
-            </div>
-            
-            {todo.text}
-            
-            <div>
-              <button onClick={() => removeTodo(index)}>x</button>
-            </div>
-
+           <p style={{ textDecoration: inboxTodos.isCompleted ? "line-through" : "" }}>{inboxTodos.text}</p> 
           </div>
+
+            <div>
+              <button className="btn-checkbox-round" ></button>
+              {/* onClick={() => completeTodo(index)} */}
+            </div>
+            
+            
+
+          
 
         </li>
       </div>

@@ -1,15 +1,13 @@
 import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
 import React, {useContext } from 'react';
 import './inbox.css'
+import '../components/ToDo/todo.css'
 
-import Todo from '../components/ToDo/Todo';
+// import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
 
 import { TodoContext } from '../App';
-
-const Inbox = ({}) => {
-
-    const task = useContext(TodoContext); 
+const Inbox = () => { 
 
     // const [ inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo ] = useContext(TodoContext);
 
@@ -45,50 +43,48 @@ const Inbox = ({}) => {
     //     task.setInboxTodos(newTodos);
     //   };
 
-    
-
-
+    const { inboxTodos, setInboxTodos } = useContext(TodoContext);
 
     return(
 
         <section id="primary-content">
             <h1>Inbox</h1>
 
-                {/* <p>{task.inboxTodos}</p> */}
+            {inboxTodos.length == 0 ? (
+                //Check if state is empty or full
+                <p>No tasks here. Add a task to get started</p>
+            ) : (
+                inboxTodos.map((todo) => {
+                    return (
 
+                    <div className="todo-list">
+                        <div className="todo-list-item">
+                         <li className="cb-priority-low"> 
 
-            {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
+                            <div className='todo'>
+                                <div id={todo.id} className="flex" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+                                    <p >{todo.text}</p>
+                                    <div>
+                                        <button className="btn-checkbox-round" ></button>
+                                        {/* onClick={() => completeTodo(index)} */}
 
+                                        
+                                    </div>
+                                </div>
+                            </div>   
 
-            <div className="todo-list">
-                {task.inboxTodos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={task.completeTodo}
-                    removeTodo={task.removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={task.addTodo} />
-            </div>
+                         </li>
+                        </div>
+                    </div>
 
-            {/* <div className="todo-list">
-                {inboxTodos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                    removeTodo={removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div> */}
+                    );
+                })
+            )}
+
 
         </section>
 
-    )
+    );
 
 };
 
