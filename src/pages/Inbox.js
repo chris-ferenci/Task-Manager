@@ -1,16 +1,17 @@
 import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
-import React, {useState, useContext, createContext } from 'react';
+import React, {useContext } from 'react';
 import './inbox.css'
 
-import LeftNav from '../components/LeftNav/LeftNav';
 import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
 
 import { TodoContext } from '../App';
 
-const Inbox = ({  }) => {
+const Inbox = ({}) => {
 
-    const [ inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo ] = useContext(TodoContext);
+    const task = useContext(TodoContext); 
+
+    // const [ inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo ] = useContext(TodoContext);
 
     // const [ todos, setTodos ] = useState(
     //     [{ text: "Task 1",
@@ -48,26 +49,42 @@ const Inbox = ({  }) => {
 
     return(
 
-            <section id="primary-content">
-                <h1>Inbox</h1>
+        <section id="primary-content">
+            <h1>Inbox</h1>
+
+                {/* <p>{task.inboxTodos}</p> */}
 
 
-                {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
+            {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
 
-                <div className="todo-list">
-                    {inboxTodos.map((todo, index) => (
-                    <Todo
-                        key={index}
-                        index={index}
-                        todo={todo}
-                        completeTodo={completeTodo}
-                        removeTodo={removeTodo}
-                    />
-                    ))}
-                    <TodoForm addTodo={addTodo} />
-                </div>
 
-            </section>
+            <div className="todo-list">
+                {task.inboxTodos.map((todo, index) => (
+                <Todo
+                    key={index}
+                    index={index}
+                    todo={todo}
+                    // completeTodo={completeTodo}
+                    // removeTodo={removeTodo}
+                />
+                ))}
+                {/* <TodoForm addTodo={addTodo} /> */}
+            </div>
+
+            {/* <div className="todo-list">
+                {inboxTodos.map((todo, index) => (
+                <Todo
+                    key={index}
+                    index={index}
+                    todo={todo}
+                    completeTodo={completeTodo}
+                    removeTodo={removeTodo}
+                />
+                ))}
+                <TodoForm addTodo={addTodo} />
+            </div> */}
+
+        </section>
 
     )
 

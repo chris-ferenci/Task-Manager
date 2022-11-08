@@ -12,14 +12,14 @@ const Header = () => {
 
     return(
         <header id="header">
-            <nav id="header-grid" class="container">
-                <div id="toggle" class="menu-toggle" onClick={onClick}>
+            <nav id="header-grid" className="container">
+                <div id="toggle" className="menu-toggle" onClick={onClick}>
                     <MdMenu /> {showNav ? <LeftNav/> : null}
                 </div>
 
                 <QuickFind />
 
-                <div id="tasks" class="task-count">
+                <div id="tasks" className="task-count">
                     <p>30/5</p>
                     <MdCheckCircle />
                 </div>

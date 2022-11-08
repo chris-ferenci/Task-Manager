@@ -16,7 +16,6 @@ import Todo from './components/ToDo/Todo';
 
 export const TodoContext = createContext();
 
-
 function App() {
 
     const [ inboxTodos, setInboxTodos ] = useState(
@@ -35,25 +34,25 @@ function App() {
   );
 
   const addTodo = text => {
-    const newTodos = [...inboxTodos, { text }];
+    const newTodos = [inboxTodos, { text }];
     setInboxTodos(newTodos);
   };
 
-const completeTodo = index => {
-    const newTodos = [...inboxTodos];
-    newTodos[index].isCompleted = true;
-    setInboxTodos(newTodos);
-};
-
-const removeTodo = index => {
-    const newTodos = [...inboxTodos];
-    newTodos.splice(index, 1);
-    setInboxTodos(newTodos);
+  const completeTodo = index => {
+      const newTodos = [inboxTodos];
+      newTodos[index].isCompleted = true;
+      setInboxTodos(newTodos);
   };
+
+  const removeTodo = index => {
+      const newTodos = [inboxTodos];
+      newTodos.splice(index, 1);
+      setInboxTodos(newTodos);
+    };
 
   return (
 
-    <TodoContext.Provider value = {{inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo}}>
+    <TodoContext.Provider value = {{inboxTodos, setInboxTodos}}>
       <div id="main-container">
           <Header/>
           <LeftNav />

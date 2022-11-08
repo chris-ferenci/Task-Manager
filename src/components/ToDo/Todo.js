@@ -6,9 +6,11 @@ import { useInRouterContext } from "react-router-dom";
 import { TodoContext } from "../../App";
 
 
-export default function Todo({ todo, index, completeTodo, removeTodo }) {
+const Todo = ({ todo, index, completeTodo, removeTodo }) => {
 
-  const [ inboxTodos, setInboxTodos ] = useContext(TodoContext);
+  // const [ inboxTodos, setInboxTodos ] = useContext(TodoContext);
+
+  const value = useContext(TodoContext); 
 
     return (
 
@@ -40,3 +42,5 @@ export default function Todo({ todo, index, completeTodo, removeTodo }) {
 
     );
   }
+
+  export default Todo;
