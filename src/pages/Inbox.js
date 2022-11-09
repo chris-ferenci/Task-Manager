@@ -1,5 +1,4 @@
-import { toBeInTheDocument } from '@testing-library/jest-dom/dist/matchers';
-import React, {useContext } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import './inbox.css'
 import '../components/ToDo/todo.css'
 
@@ -9,80 +8,84 @@ import TodoForm from '../components/ToDo/ToDoForm';
 import { TodoContext } from '../App';
 const Inbox = () => { 
 
-    // const [ inboxTodos, setInboxTodos, addTodo, completeTodo, removeTodo ] = useContext(TodoContext);
+    // contexts
+    const { inboxTodos, setInboxTodos, inboxNewText, setInboxNewText } = useContext(TodoContext);
 
-    // const [ todos, setTodos ] = useState(
-    //     [{ text: "Task 1",
-    //     isCompleted: false,
-    //     status: "today" }, 
-    //     { text: "Task 2",
-    //     isCompleted: false,
-    //     status: "today" }, 
-    //     { text: "Task 3",
-    //     isCompleted: false,
-    //     status: "upcoming" }, 
-    //     { text: "Task 4",
-    //     isCompleted: false,
-    //     status: "today" }]
-    // );
+    // States
+    const [ value, setValue ] = React.useState("Add a task");
+    
+    const handleText = (e) => setValue(e.target.value);
 
-    // const addTodo = text => {
-    //     const newTodos = [task.inboxTodos, { text }];
-    //     task.setInboxTodos(newTodos);
-    //   };
 
-    // const completeTodo = index => {
-    //     const newTodos = [task.inboxTodos];
-    //     newTodos[index].isCompleted = true;
-    //     task.setInboxTodos(newTodos);
-    // };
+    // strikethrough
+    const handleDone = (todo) => {
+        // addTodo(todos.filter((i) => i !== todo));
+        const newArray = [...inboxTodos];
+        const match = newArray.find((i, index) => {
+          return i.text === todo.text;
+        });
+    
+        // console.log("WAS STATE MUTATED", inboxTodos);
+    
+        match.isCompleted = true;
+        setInboxTodos(newArray);
+      };
 
-    // const removeTodo = index => {
-    //     const newTodos = [task.inboxTodos];
-    //     newTodos.splice(index, 1);
-    //     task.setInboxTodos(newTodos);
-    //   };
 
-    const { inboxTodos, setInboxTodos } = useContext(TodoContext);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // e.target.reset();
+        if (!value) return;
+        setInboxTodos((prevTodo) => [...prevTodo, { text: value, isCompleted: false, status: "today"  }]);
+        setValue("Add a task");
+    };
+
 
     return(
 
         <section id="primary-content">
-            <h1>Inbox</h1>
+            <div className="todo-container">
+
+        <h1>Inbox</h1>
 
             {inboxTodos.length == 0 ? (
                 //Check if state is empty or full
                 <p>No tasks here. Add a task to get started</p>
+
             ) : (
-                inboxTodos.map((todo) => {
+                inboxTodos.map((todo, index) => {
                     return (
-
                     <div className="todo-list">
-                        <div className="todo-list-item">
-                         <li className="cb-priority-low"> 
+ 
+                        <li className="todo-list-item" key={todo.id}> 
 
-                            <div className='todo'>
-                                <div id={todo.id} className="flex" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-                                    <p >{todo.text}</p>
-                                    <div>
-                                        <button className="btn-checkbox-round" ></button>
-                                        {/* onClick={() => completeTodo(index)} */}
+                            <button className="btn-checkbox-round"  onClick={() => handleDone(todo)} ></button>
 
-                                        
-                                    </div>
-                                </div>
-                            </div>   
+                            <span className={todo.isCompleted ? "isDone" : "in-progress"}>
+                                {todo.text}
+                            </span>
 
-                         </li>
-                        </div>
+                        </li> 
+
                     </div>
+
+                    
 
                     );
                 })
             )}
 
+            <form className="todo-form" onSubmit={handleSubmit}>
+                <input type="text" id="newTodo" className="input" value={value} onClick= {e => setValue("")} onChange={handleText} />
+                {/* <button type="submit">Add</button> */}
+            </form>
 
+            </div> 
+            {/* End Todo Container */}
         </section>
+
+        
+
 
     );
 

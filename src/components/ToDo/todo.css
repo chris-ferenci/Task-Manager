@@ -1,13 +1,15 @@
-.todo-list-item{
-  flex-wrap: nowrap;
+.todo-list{
+  display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
+
 .todo {
-    display:flex;
-    width: 100%;
+    display: flex;
     align-items: center;
+    width: 100%;
     background: #fff;
     border-radius: 0px;
     font-size: 1.3rem;
@@ -19,8 +21,8 @@ li {
     list-style:none;
 }
 
-
 .btn-checkbox-round {
+  margin-right: 20px;
   background-color: transparent;
   border: 2px solid blue;
   border-radius: 50%;
@@ -28,7 +30,6 @@ li {
   height: 24px;
   text-decoration: none;
   display: inline-block;
-
   cursor: pointer;
 }
 
