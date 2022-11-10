@@ -19,8 +19,9 @@ export const TodoContext = createContext();
 
 function App() {
 
-  const [inboxTodos, setInboxTodos] = useState([]);
-  const [inboxNewText, setInboxNewText] = useState([]);
+  const [ inboxTodos, setInboxTodos ] = useState([]);
+  const [ inboxNewText, setInboxNewText ] = useState([]);
+  const [ isEditing, setIsEditing ] = useState(false)
 
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function App() {
 
   return (
 
-    <TodoContext.Provider value = {{inboxTodos, setInboxTodos, inboxNewText, setInboxNewText}}>
+    <TodoContext.Provider value = {{inboxTodos, setInboxTodos, inboxNewText, setInboxNewText, isEditing, setIsEditing}}>
       <div id="main-container">
           <Header/>
           <LeftNav />

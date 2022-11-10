@@ -1,6 +1,8 @@
 import React, {useContext, useState, useEffect } from 'react';
 import './inbox.css'
 import '../components/ToDo/todo.css'
+import { EditText, EditTextarea } from 'react-edit-text';
+import 'react-edit-text/dist/index.css';
 
 // import Todo from '../components/ToDo/Todo';
 import TodoForm from '../components/ToDo/ToDoForm';
@@ -9,7 +11,7 @@ import { TodoContext } from '../App';
 const Inbox = () => { 
 
     // contexts
-    const { inboxTodos, setInboxTodos, inboxNewText, setInboxNewText } = useContext(TodoContext);
+    const { inboxTodos, setInboxTodos, inboxNewText, setInboxNewText, isEditing, setIsEditing } = useContext(TodoContext);
 
     // States
     const [ value, setValue ] = React.useState("Add a task");
@@ -68,7 +70,6 @@ const Inbox = () => {
                         </li> 
 
                     </div>
-
                     
 
                     );
