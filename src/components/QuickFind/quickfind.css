@@ -4,7 +4,7 @@
   grid-area: quick-find;
 }
 
-input[type=checkbox] {
+/* input[type=checkbox] {
     appearance: none;
     height: 1.7rem;
     width: 1.7rem;
@@ -13,9 +13,9 @@ input[type=checkbox] {
     border-radius: 50%;
     display: inline-block;
     margin-right: .5rem;
-  }
+  } */
 
- input[type=text] {
+ .quick-find-input[type=text] {
     width: 100%;
     font-size: 1.2rem;
     border: none;
@@ -30,7 +30,7 @@ input[type=checkbox] {
     color: #fff;
   }
 
-input::placeholder {
+.quick-find-input::placeholder {
     opacity: 1;
     color: #fff;
 }
