@@ -18,26 +18,39 @@ export const TodoContext = createContext();
 
 function App() {
 
+  //Set States
   const [ inboxTodos, setInboxTodos ] = useState([]);
   const [ inboxNewText, setInboxNewText ] = useState([]);
-  const [ isEditing, setIsEditing ] = useState(false)
+  const [ todayTodos, setTodayTodos ] = useState([]);
+  const [ todayNewText, setTodayNewText ] = useState([]);
+  const [ upcomingTodos, setUpcomingTodos ] = useState([]);
+  const [ upcomingNewText, setUpcomingNewText ] = useState([]);
 
+  // Test States
+  // useEffect(() => {
+  //   setInboxTodos([{
+  //     "id": 1,
+  //     "text": "Give dog a bath",
+  //     "isCompleted": false,
+  //   }, {
+  //     "id": 2,
+  //     "text": "Do laundry",
+  //     "isCompleted": true,
+  //   }]);
+  // }, []);
 
-  useEffect(() => {
-    setInboxTodos([{
-      "id": 1,
-      "text": "Give dog a bath",
-      "isCompleted": false,
-    }, {
-      "id": 2,
-      "text": "Do laundry",
-      "isCompleted": true,
-    }]);
-  }, []);
+  // Today
+
+  
+
+  // useEffect(() => {
+  //   setInboxTodos();});
+
 
   return (
 
-    <TodoContext.Provider value = {{inboxTodos, setInboxTodos, inboxNewText, setInboxNewText, isEditing, setIsEditing}}>
+    <TodoContext.Provider value = {{inboxTodos, setInboxTodos, inboxNewText, setInboxNewText,
+    todayTodos, setTodayTodos, todayNewText, setTodayNewText, upcomingTodos, setUpcomingTodos, upcomingNewText, setUpcomingNewText}}>
       <div id="main-container">
           <Header/>
           <LeftNav />

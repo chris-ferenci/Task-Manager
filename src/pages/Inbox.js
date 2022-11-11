@@ -12,7 +12,7 @@ import { TodoContext } from '../App';
 const Inbox = () => { 
 
     // contexts
-    const { inboxTodos, setInboxTodos, inboxNewText, setInboxNewText, isEditing, setIsEditing } = useContext(TodoContext);
+    const { inboxTodos, setInboxTodos } = useContext(TodoContext);
 
     // States
     const [ value, setValue ] = React.useState("Add a task");
@@ -39,7 +39,7 @@ const Inbox = () => {
         e.preventDefault();
         // e.target.reset();
         if (!value) return;
-        setInboxTodos((prevTodo) => [...prevTodo, { text: value, isCompleted: false, status: "today"  }]);
+        setInboxTodos((prevTodo) => [...prevTodo, { id: 0, text: value, isCompleted: false, status: "today"  }]);
         setValue("Add a task");
     };
 
@@ -81,7 +81,7 @@ const Inbox = () => {
                 })
             )}
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete="off">
                 <input type="text" id="newTodo" className="todo-form" value={value} onClick= {e => setValue("")} onChange={handleText} />
                 {/* <button type="submit">Add</button> */}
             </form>

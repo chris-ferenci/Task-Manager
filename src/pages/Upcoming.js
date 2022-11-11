@@ -1,67 +1,85 @@
-import React, { useEffect, useState, createContext } from 'react';
-import Todo from '../components/ToDo/Todo';
-import TodoForm from '../components/ToDo/ToDoForm';
+import React, { useContext } from 'react';
+import { EditText,  } from 'react-edit-text';
+
+import { TodoContext } from '../App';
 
 export default function Upcoming(){
 
 
-    const [ todos, setTodos ] = useState(
-        [{ text: "Task 1 Upcoming",
-        isCompleted: false,
-        status: "today" }, 
-        { text: "Task 2 Upcoming",
-        isCompleted: false,
-        status: "today" }, 
-        { text: "Task 3",
-        isCompleted: false,
-        status: "upcoming" }, 
-        { text: "Task 4",
-        isCompleted: false,
-        status: "today" }]
-    );
+    const { upcomingTodos, setUpcomingTodos } = useContext(TodoContext);
 
+    // States
+    const [ value, setValue ] = React.useState("Add a task");
     
+    const handleText = (e) => setValue(e.target.value);
 
-    const addTodo = text => {
-        const newTodos = [...todos, { text }];
-        setTodos(newTodos);
+
+    // strikethrough
+    const handleDone = (todo) => {
+        // addTodo(todos.filter((i) => i !== todo));
+        const newArray = [...upcomingTodos];
+        const match = newArray.find((i, index) => {
+          return i.text === todo.text;
+        });
+    
+        // console.log("WAS STATE MUTATED", inboxTodos);
+    
+        match.isCompleted = true;
+        setUpcomingTodos(newArray);
       };
 
-    const completeTodo = index => {
-        const newTodos = [...todos];
-        newTodos[index].isCompleted = true;
-        setTodos(newTodos);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // e.target.reset();
+        if (!value) return;
+        setUpcomingTodos((prevTodo) => [...prevTodo, { text: value, isCompleted: false, status: "today"  }]);
+        setValue("Add a task");
     };
-
-    const removeTodo = index => {
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        setTodos(newTodos);
-      };
-
-    const todoCount = todos.length
-    console.log(todoCount)
 
     return(
         <section id="primary-content">
-            <h1>Upcoming</h1>
+            <div className="todo-container">
 
-            {/* <TasksList tasksList={tasksList} handleToggle={handleToggle}/> */}
+        <h1>Upcoming</h1>
 
+            {upcomingTodos.length == 0 ? (
+                //Check if state is empty or full
+                <p>No tasks here. Add a task to get started</p>
 
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                    removeTodo={removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+            ) : (
+                upcomingTodos.map((todo, index) => {
+                    return (
+                    <div className="todo-list">
+ 
+                        <li className="todo-list-item" key={todo.id}> 
 
+                            <button className="btn-checkbox-round"  onClick={() => handleDone(todo)} ></button>
+
+                            <span className={todo.isCompleted ? "isDone" : "in-progress"}>
+                                <EditText
+                                    name="editText"
+                                    defaultValue={todo.text}
+                                    style={{color: "#2e2e2e", paddingLeft: "10px", fontSize: "1.3rem", outline:"none", border:"none"}}
+                                />
+                            </span>
+
+                        </li> 
+
+                    </div>
+                    
+
+                    );
+                })
+            )}
+
+            <form onSubmit={handleSubmit} autoComplete="off">
+                <input type="text" id="newTodo" className="todo-form" value={value} onClick= {e => setValue("")} onChange={handleText} />
+                {/* <button type="submit">Add</button> */}
+            </form>
+
+            </div> 
+            {/* End Todo Container */}
         </section>
     )
 

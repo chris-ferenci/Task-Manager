@@ -9,7 +9,7 @@ export default function LeftNav() {
 
     const [isActive, setActive] = useState(false);
 
-    const inboxTaskCount = useContext(TodoContext);
+    const taskCount = useContext(TodoContext);
 
     return(
     
@@ -18,15 +18,15 @@ export default function LeftNav() {
             <ul className="left-nav-main">
 
                     <IconContext.Provider value={{ color: "#00A8DD", size: "24px" }}>
-                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>{inboxTaskCount.inboxTodos.length}</p></span></li></Link>
+                        <Link to='/inbox'><li><span className="li-icons"><MdInbox/></span>Inbox<span id="li-task-count" className="li-task-count-style"><p>{taskCount.inboxTodos.length}</p></span></li></Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ color: "#47DD00", size: "24px"  }}>
-                        <Link to='/today'><li><span className="li-icons"><MdOutlineToday/></span>Today<span id="li-task-count" className="li-task-count-style">5</span></li></Link>
+                        <Link to='/today'><li><span className="li-icons"><MdOutlineToday/></span>Today<span id="li-task-count" className="li-task-count-style">{taskCount.todayTodos.length}</span></li></Link>
                     </IconContext.Provider>
                 
                     <IconContext.Provider value={{ color: "#9600DD", size: "24px"  }}>
-                        <Link to='/upcoming'><li><span className="li-icons"><MdCalendarToday/></span>Upcoming</li></Link>
+                        <Link to='/upcoming'><li><span className="li-icons"><MdCalendarToday/></span>Upcoming<span id="li-task-count" className="li-task-count-style">{taskCount.upcomingTodos.length}</span></li></Link>
                     </IconContext.Provider>
 
                     <li><span className="li-icons"><MdKeyboardArrowDown/></span>Projects</li>

@@ -8,12 +8,12 @@ import QuickFind from '../QuickFind/QuickFind';
 
 const Header = () => {
     const [showNav, setShowNav] = useState(false);
-    const onClick = () => setShowNav(true);
+    const handleNav = () => setShowNav(true);
 
     return(
         <header id="header">
             <nav id="header-grid" className="container">
-                <div id="toggle" className="menu-toggle" onClick={onClick}>
+                <div id="toggle" className="menu-toggle" onClick={handleNav}>
                     <MdMenu /> {showNav ? <LeftNav/> : null}
                 </div>
 
