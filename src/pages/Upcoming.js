@@ -11,25 +11,33 @@ export default function Upcoming(){
     // States
     const [ value, setValue ] = React.useState("Add a task");
     
-    const handleText = (e) => setValue(e.target.value);
+    const handleText = (e) => {
+        console.log(e)
+        setValue(e.target.value);
+    }
 
 
     // strikethrough
     const handleDone = (todo) => {
         // addTodo(todos.filter((i) => i !== todo));
+        // console.log(todo);
         const newArray = [...upcomingTodos];
         const match = newArray.find((i, index) => {
           return i.text === todo.text;
         });
+
+        if (match.isCompleted === false){
+            match.isCompleted = true;
+        } else if (match.isCompleted === true){
+            match.isCompleted = false;
+        }
     
-        // console.log("WAS STATE MUTATED", inboxTodos);
-    
-        match.isCompleted = true;
         setUpcomingTodos(newArray);
       };
 
 
     const handleSubmit = (e) => {
+        console.log(e)
         e.preventDefault();
         // e.target.reset();
         if (!value) return;
@@ -50,7 +58,7 @@ export default function Upcoming(){
             ) : (
                 upcomingTodos.map((todo, index) => {
                     return (
-                    <div className="todo-list">
+                    <div key={index} className="todo-list">
  
                         <li className="todo-list-item" key={todo.id}> 
 
@@ -74,7 +82,7 @@ export default function Upcoming(){
             )}
 
             <form onSubmit={handleSubmit} autoComplete="off">
-                <input type="text" id="newTodo" className="todo-form" value={value} onClick= {e => setValue("")} onChange={handleText} />
+                <input type="text" id="newTodo" className="todo-form" value={value} onClick= {todo => setValue("")} onChange={handleText} />
                 {/* <button type="submit">Add</button> */}
             </form>
 

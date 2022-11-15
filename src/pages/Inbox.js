@@ -1,12 +1,9 @@
-import React, {useContext, useState, useEffect } from 'react';
+import React, {useContext } from 'react';
 import 'react-edit-text/dist/index.css';
 import './inbox.css'
 import '../components/ToDo/todo.css'
-import { EditText, EditTextarea } from 'react-edit-text';
+import { EditText } from 'react-edit-text';
 
-
-// import Todo from '../components/ToDo/Todo';
-// import TodoForm from '../components/ToDo/ToDoForm';
 
 import { TodoContext } from '../App';
 const Inbox = () => { 
@@ -27,10 +24,13 @@ const Inbox = () => {
         const match = newArray.find((i, index) => {
           return i.text === todo.text;
         });
-    
-        // console.log("WAS STATE MUTATED", inboxTodos);
-    
-        match.isCompleted = true;
+
+        if (match.isCompleted === false){
+            match.isCompleted = true;
+        } else if (match.isCompleted === true){
+            match.isCompleted = false;
+        }
+        console.log("Is completed:" + match.isCompleted)
         setInboxTodos(newArray);
       };
 
@@ -39,7 +39,8 @@ const Inbox = () => {
         e.preventDefault();
         // e.target.reset();
         if (!value) return;
-        setInboxTodos((prevTodo) => [...prevTodo, { id: 0, text: value, isCompleted: false, status: "today"  }]);
+        setInboxTodos((prevTodo) => [...prevTodo, { text: value, isCompleted: false, status: "today"  }]);
+
         setValue("Add a task");
     };
 
@@ -58,14 +59,15 @@ const Inbox = () => {
             ) : (
                 inboxTodos.map((todo, index) => {
                     return (
-                    <div className="todo-list">
+                    <div key={index} className="todo-list">
  
                         <li className="todo-list-item" key={todo.id}> 
 
                             <button className="btn-checkbox-round"  onClick={() => handleDone(todo)} ></button>
 
                             <span className={todo.isCompleted ? "isDone" : "in-progress"}>
-                                <EditText
+                                <EditText 
+                                    key={index}
                                     name="editText"
                                     defaultValue={todo.text}
                                     style={{color: "#2e2e2e", paddingLeft: "10px", fontSize: "1.3rem", outline:"none", border:"none"}}

@@ -1,9 +1,9 @@
 import './index.css';
 import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 
-//components
+// components
 import Header from './components/Header/Header';
 import LeftNav from './components/LeftNav/LeftNav';
 
@@ -12,40 +12,17 @@ import Inbox from './pages/Inbox';
 import Today from './pages/Today';
 import Upcoming from './pages/Upcoming';
 
-const jsonItems = require("./data.json");
-
 export const TodoContext = createContext();
 
 function App() {
 
-  //Set States
+  //Set todo States
   const [ inboxTodos, setInboxTodos ] = useState([]);
   const [ inboxNewText, setInboxNewText ] = useState([]);
   const [ todayTodos, setTodayTodos ] = useState([]);
   const [ todayNewText, setTodayNewText ] = useState([]);
   const [ upcomingTodos, setUpcomingTodos ] = useState([]);
   const [ upcomingNewText, setUpcomingNewText ] = useState([]);
-
-  // Test States
-  // useEffect(() => {
-  //   setInboxTodos([{
-  //     "id": 1,
-  //     "text": "Give dog a bath",
-  //     "isCompleted": false,
-  //   }, {
-  //     "id": 2,
-  //     "text": "Do laundry",
-  //     "isCompleted": true,
-  //   }]);
-  // }, []);
-
-  // Today
-
-  
-
-  // useEffect(() => {
-  //   setInboxTodos();});
-
 
   return (
 

@@ -4,8 +4,6 @@ import { useContext, useEffect } from "react";
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 import { TodoContext  } from "../../App"
-import { MdNoEncryption, MdNoEncryptionGmailerrorred } from "react-icons/md";
-
 
 export default function QuickFind(){
 
@@ -44,7 +42,7 @@ export default function QuickFind(){
 
     return(
     <div id="quick-find">
-        <form className="form-block" autocomplete="off">
+        <form className="form-block" autoComplete="off">
             {/* <input name="fsearch" className="quick-find-input" type="text" id="q" placeholder="Quick Find"/> */}
             <div style={{ width: 400 }}>
             <ReactSearchAutocomplete

@@ -21,10 +21,14 @@ export default function Today(){
         const match = newArray.find((i, index) => {
           return i.text === todo.text;
         });
+
+        if (match.isCompleted === false){
+            match.isCompleted = true;
+        } else if (match.isCompleted === true){
+            match.isCompleted = false;
+        }
     
         // console.log("WAS STATE MUTATED", inboxTodos);
-    
-        match.isCompleted = true;
         setTodayTodos(newArray);
       };
 
@@ -50,7 +54,7 @@ export default function Today(){
             ) : (
                 todayTodos.map((todo, index) => {
                     return (
-                    <div className="todo-list">
+                    <div key={index} className="todo-list">
  
                         <li className="todo-list-item" key={todo.id}> 
 
