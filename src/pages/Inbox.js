@@ -16,7 +16,6 @@ const Inbox = () => {
     
     const handleText = (e) => setValue(e.target.value);
 
-
     // strikethrough
     const handleDone = (todo) => {
         // addTodo(todos.filter((i) => i !== todo));

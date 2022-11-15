@@ -6,6 +6,10 @@
     color: #2e2e2e;
 }
 
+.nav-menu.active{
+    display:none;
+}
+
 /* LEFT NAV LIST */
 
 a, a:visited, a:hover {

@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect, createContext} from 'react';
 import "./header.css";
 import {MdMenu, MdCheckCircle} from "react-icons/md"
 import { useLocation } from 'react-router-dom'
@@ -11,18 +11,24 @@ import QuickFind from '../QuickFind/QuickFind';
 import { TodoContext } from '../../App';
 
 const Header = () => {
-    
-    const [showNav, setShowNav] = useState(false);
-    const handleNav = () => setShowNav(true);
 
+    // show/hide nav
+    const [ showNav, setShowNav ] = useState(false);
+    const handleNav = () => setShowNav(!showNav)
+
+    // const handleNav = event => {
+    //     setShowNav(current => !current)
+    // }
+
+
+    //todo context
     const {inboxTodos, todayTodos, upcomingTodos} = useContext(TodoContext);
 
-    const [curTaskCount, setCurTaskCount] = useState([])
+     // set current page header count
+    const [ curTaskCount, setCurTaskCount ] = useState([])
     const [ totalTaskCount, setTotalTaskCount ] = useState([])
-
     const location = useLocation();
-
-    // set current page header count
+   
     useEffect(() =>{
 
         if(location.pathname == "/inbox"){
@@ -42,16 +48,16 @@ const Header = () => {
         const newArr = [...inboxTodos, ...todayTodos, ...upcomingTodos]
         const totalCompletedCount = newArr.filter(task => task.isCompleted == false)
         setTotalTaskCount(totalCompletedCount)
-    })
+    },[inboxTodos,todayTodos,upcomingTodos])
 
 
     return(
+        <>
         <header id="header">
             <nav id="header-grid" className="container">
                 <div id="toggle" className="menu-toggle" onClick={handleNav}>
-                    <MdMenu /> {showNav ? <LeftNav/> : null}
+                    <MdMenu />
                 </div>
-
                 <QuickFind />
 
                 <div id="tasks" className="task-count">
@@ -64,6 +70,10 @@ const Header = () => {
                 </div>
             </nav>
         </header>
+        <nav className= {showNav ? 'nav-menu active' : "nav-menu"}>
+            <LeftNav />
+        </nav>
+    </>
     );
 }
 
