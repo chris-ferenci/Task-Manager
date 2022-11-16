@@ -11,8 +11,6 @@ export default function LeftNav() {
 
     const handleToggle = () => setActive(!isActive)
 
-    // const taskCount = useContext(TodoContext);
-
     const {inboxTodos, todayTodos, upcomingTodos} = useContext(TodoContext);
 
     const inboxCompletedCount = inboxTodos.filter(task => task.isCompleted == false)
